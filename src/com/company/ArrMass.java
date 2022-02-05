@@ -1,6 +1,6 @@
 package com.company;
 
-public class ArrMass {
+public class ArrMass implements Mass{
     private int massive[];
 
     private int size = 0;
@@ -34,12 +34,14 @@ public class ArrMass {
         massive[index] = element;
     }
 
-    public void delete(int index) {
+    public int delete(int index) {
         chekSize(index);
+        int temp = massive[index];
         for (; index < size; index++) {
             massive[index] = massive[index + 1];
         }
         size--;
+        return temp;
     }
 
     public void add(int newMassive[]) {
